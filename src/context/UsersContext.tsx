@@ -1,56 +1,39 @@
+import React, { createContext, useState } from "react";
 
-import React, {createContext, useState} from "react";
+/**
+ * Create Users Context to aid with pulling users data from the api
+ */
 
-export const UsersContext = createContext()
+export const UsersContext = createContext();
 
-const url = 'https://randomuser.me/api/'
-
-
-export default function UsersContextProvider({children}) {
-
-    const [users, setUsers] = useState([])
+const url = "https://randomuser.me/api/";
 
 
-    const getUsers = async () => {
+// Fetch user from API
+// Endpoint: GET /api/posts
+// Users Context Provider creation
 
-        try {
-            const response = await fetch(url)
+export default function UsersContextProvider({ children }) {
+  const [users, setUsers] = useState([]);
 
-            if(!response.ok){
-            console.log('error', response.status) 
-            }
-            const users = await response.json()
+  const getUsers = async () => {
+    try {
+      const response = await fetch(url);
 
-            setUsers(users?.results)
+      if (!response.ok) {
+        console.log("error", response.status);
+      }
+      const users = await response.json();
 
-        } catch (error) {
-            console.log('error', error)
-        }
-      
-
-
+      setUsers(users?.results);
+    } catch (error) {
+      console.log("error", error);
     }
+  };
 
-
-
-
-
-
-
-
-
-    return (
-        <UsersContext.Provider value={{users, getUsers}}>
-
-            {children}
-        </UsersContext.Provider>
-    )
-
-
-
-
-
+  return (
+    <UsersContext.Provider value={{ users, getUsers }}>
+      {children}
+    </UsersContext.Provider>
+  );
 }
-
-
-

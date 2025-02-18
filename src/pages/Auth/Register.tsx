@@ -1,6 +1,10 @@
 import React from "react";
 import RegisterForm from "../../Components/Molecules/RegisterForm";
 
+
+/**
+ * Returning Register Page with Register Form
+ */
 const Register = () => {
   return (
     <div

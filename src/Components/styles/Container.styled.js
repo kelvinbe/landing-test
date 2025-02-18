@@ -3,7 +3,29 @@ import styled from "styled-components";
 
 export const Container = styled.div`
     width: 100%;
-    height: 347px;
+    height: auto;
+    max-width: 100%;
+    margin: 0 auto;
+    color: red;
+    border-radius: 20px;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+
+    @media (max-width: 768px) { 
+        width: 90%;
+        height: auto;
+        flex-direction: column;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+
+    }
+`
+
+export const ContainerRegister = styled.div`
+    width: 100%;
+    height: auto;
     max-width: 100%;
     margin: 0 auto;
     color: red;

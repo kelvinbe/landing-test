@@ -1,6 +1,6 @@
 import React from "react";
 import {
-  Container,
+    ContainerRegister,
   ImageSection,
   FormSection,
 } from "../styles/Container.styled";
@@ -14,7 +14,7 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { TiSocialGooglePlus } from "react-icons/ti";
 import { FaArrowRight } from "react-icons/fa";
-import { useNavigate } from "react-router-dom"
+import { IoCheckboxSharp } from "react-icons/io5";
 
 
 type Inputs = {
@@ -22,13 +22,16 @@ type Inputs = {
   exampleRequired: string;
 };
 
-const LoginForm = () => {
-  const {register,handleSubmit,watch,} = useForm<Inputs>();
-  const navigate = useNavigate()
+const RegisterForm = () => {
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+  } = useForm<Inputs>();
 
-  const handleLogin = () => {
+  const handleRegister = () => {
     console.log("you are logged in");
-    navigate('/home')
   };
 
   console.log(watch("example"));
@@ -43,6 +46,17 @@ const LoginForm = () => {
     backgroundColor: "#f9f9f9",
   };
 
+  const inputStPass = {
+    width: "100%",
+    padding: "10px 15px",
+    margin: "10px 0",
+    fontSize: "16px",
+    border: "1px solid #ccc",
+    borderRadius: "8px",
+    backgroundColor: "#f9f9f9",
+    margin: 5,
+  };
+
   const IconButtonData = [
     { text: "FACEBOOK", color: "#5856D6", icon: <FaFacebookF /> },
     { text: "TWITTER", color: "#00BCD4", icon: <FaTwitter /> },
@@ -51,7 +65,7 @@ const LoginForm = () => {
 
   return (
     <div style={{ width: 700 }}>
-      <Container>
+      <ContainerRegister>
         <ImageSection>
           <div style={{ marginBottom: 10 }}>
             <img src={Logo} width={50} height={60} />
@@ -64,10 +78,11 @@ const LoginForm = () => {
               fontSize: 23,
             }}
           >
-            Welcome back
+            Nice to meet you :)
+          
           </span>
           <span style={{ fontFamily: "open sans", fontSize: 14 }}>
-            Please login to continue
+          Just register to join with us
           </span>
         </ImageSection>
 
@@ -81,7 +96,7 @@ const LoginForm = () => {
             }}
           >
             <div>
-              <h2>Login</h2>
+              <h2>Register</h2>
               <span
                 style={{
                   display: "flex",
@@ -100,8 +115,8 @@ const LoginForm = () => {
                 alignItems: "center",
               }}
             >
-              <FaArrowRight />
-              <span style={{ color: "#9C27B0" }}>Create new account</span>
+              <FaArrowRight color="#9C27B0" />
+              <span style={{ color: "#9C27B0" }}>Already have account?</span>
             </div>
           </div>
 
@@ -134,7 +149,7 @@ const LoginForm = () => {
                 backgroundColor: "#000000",
               }}
             ></span>
-            <span style={{ padding: 10 }}> or login with email</span>
+            <span style={{ padding: 10 }}> or register with email</span>
             <span
               style={{
                 display: "flex",
@@ -145,7 +160,7 @@ const LoginForm = () => {
             ></span>
           </div>
 
-          <form style={{ width: "84%" }} onSubmit={handleSubmit(handleLogin)}>
+          <form style={{ width: "84%" }} onSubmit={handleSubmit(handleRegister)}>
             <input
               placeholder="Name"
               style={inputSt}
@@ -153,27 +168,46 @@ const LoginForm = () => {
             />
 
             <input
-              placeholder="Password"
+              placeholder="Email"
               style={inputSt}
               {...register("exampleRequired", { required: true })}
             />
 
-            <div style={{ display: "flex", justifyContent: "space-between" }}>
-              <span style={{ display: "flex" }}>
-                <MdCheckBoxOutlineBlank />
-                <text style={{ fontSize: "12px" }}>Remember</text>
-              </span>
-              <span style={{ fontSize: "12px", color: "#9C27B0" }}>
-                Forgot password?
-              </span>
+            <div style={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
+                <div style={{width: '50%'}}>
+            <input
+              placeholder="Password*"
+              style={inputStPass}
+              {...register("exampleRequired", { required: true })}
+            />
             </div>
 
-            <Button txtColor="white" btnColor="#8BC34A" btnText="CONTINUE" />
+                <div style={{width: '50%',marginLeft: 53, }}>
+
+                <input
+              placeholder="Repeat Password*"
+              style={inputStPass}
+              {...register("exampleRequired", { required: true })}
+            />
+                </div>
+
+            </div>
+          
+
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: 'center' }}>
+              <span style={{ display: "flex" }}>
+                <IoCheckboxSharp color="#8BC34A"  size={50} />
+                <text style={{ fontSize: "8px" }}>I have read and accept the Terms of Service & Privacy Policy *</text>
+              </span>
+              <Button txtColor="white" btnColor="#8BC34A" btnText="CONTINUE" />
+
+            </div>
+
           </form>
         </FormSection>
-      </Container>
+      </ContainerRegister>
     </div>
   );
 };
 
-export default LoginForm;
+export default RegisterForm;

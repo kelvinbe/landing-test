@@ -24,7 +24,7 @@ const Header = () => {
           alignItems: "center",
         }}
       >
-        <img src={Logo} width={100} height={100} />
+        <img src={Logo} width={80} height={80} />
 
         {HeaderLinks.map((lin) => {
           return (

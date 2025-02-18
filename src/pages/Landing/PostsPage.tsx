@@ -1,12 +1,18 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 import Header from '../../Components/Organisms/Header'
 import { UsersContext } from '../../context/UsersContext'
 import {PostsComponent} from '../../Components/styles/Header.styled'
 import { PostsContext } from '../../context/PostsContext'
+import { useNavigate } from 'react-router-dom'
+import HashLoader from "react-spinners/HashLoader";
+
 
 const PostsPage = () => {
 
     const {posts, getPosts} = useContext(PostsContext)
+    const navigate = useNavigate()
+    let [loading, setLoading] = useState(true);
+    
 
     useEffect(() => {
 
@@ -15,11 +21,18 @@ const PostsPage = () => {
           getPosts()
         }else{
             console.log(posts)
+            setLoading(false)
         }
 
     }, [posts])
 
     console.log('posts', posts)
+
+
+    const handleClickedPost = (id) => {
+
+        navigate(`/posts/${id}`, {state: { key: id }})
+    }
 
 
   return (
@@ -37,9 +50,15 @@ const PostsPage = () => {
         </div>
       
       <div style={{display: 'flex', justifyContent: 'center', flexDirection: 'column', alignItems: 'center'}}>
-       {
+       {loading ? <HashLoader
+            color={'white'}
+            loading={loading}
+            size={100}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          /> :
         posts.map((post) => {
-            return <PostsComponent>
+            return <PostsComponent onClick={() => handleClickedPost(post.userId)}>
                 <div  style={{display: 'flex', flexDirection: 'column', color: 'white'}}>
                <div>Gender: {post?.title}</div>
                </div>

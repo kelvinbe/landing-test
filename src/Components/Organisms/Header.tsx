@@ -23,7 +23,7 @@ const Header = () => {
     </div>
 
 <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-        <span>SIGN IN</span>
+        <span style={{fontSize: 20}}>SIGN IN</span>
     <div>
         <Button btnText='Register' btnColor='#8BC34A' txtColor='white' />
     </div>

@@ -18,8 +18,8 @@ export const HeaderContainer = styled.header`
 `;
 
 export const UserComponent = styled.div`
-    width: 80%;
-    height: 70px;
+    width: 40%;
+    height: auto;
     border: 1px black solid;
     background: aliceblue;
     box-shadow: 0 4px 8px 0 rgb(0 255 231 / 20%), 0 6px 20px 0 rgb(19 163 231 / 19%);

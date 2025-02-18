@@ -8,6 +8,7 @@ import UsersContextProvider from './context/UsersContext.tsx';
 import UsersProfilePage from './pages/Landing/UserProfilesPage.tsx';
 import PostsContextProvider from './context/PostsContext.tsx';
 import PostsPage from './pages/Landing/PostsPage.tsx';
+import CommentViewPage from './pages/Landing/CommentsViewPage.tsx';
 
 
 const router = createBrowserRouter([
@@ -27,9 +28,11 @@ const router = createBrowserRouter([
     {
       path: '/posts',
       element: <PostsPage />
-      }
-
-  
+    },
+    {
+      path: 'posts/:postsId',
+      element: <CommentViewPage />
+    }
 ]);
 
 

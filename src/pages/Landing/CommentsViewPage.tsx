@@ -1,23 +1,17 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext } from "react";
 import Header from "../../Components/Organisms/Header";
 import { PostsComponent } from "../../Components/styles/Header.styled";
 import { PostsContext } from "../../context/PostsContext";
-import HashLoader from "react-spinners/HashLoader";
+import { useLocation } from "react-router-dom";
 
-const HomePage = () => {
+const CommentViewPage = () => {
   const { posts, getPosts } = useContext(PostsContext);
-  let [loading, setLoading] = useState(true);
+  let location = useLocation();
 
-  useEffect(() => {
-    if (posts?.length < 1) {
-      getPosts();
-    } else {
-      console.log(posts);
-      setLoading(false);
-    }
-  }, [posts]);
+  useEffect(() => {}, [location]);
 
   console.log("posts", posts);
+  console.log("location", location);
 
   return (
     <div
@@ -33,13 +27,12 @@ const HomePage = () => {
       <div
         style={{ display: "flex", justifyContent: "center", color: "white" }}
       >
-        <h2>Welcome to the Landing</h2>
+        <h2>Posts Detailed View</h2>
       </div>
-
       <div
         style={{ display: "flex", justifyContent: "center", color: "white" }}
       >
-        <h3>Latest Posts</h3>
+        <h2>Posts Belonging to user {location?.state?.key}</h2>
       </div>
 
       <div
@@ -50,18 +43,11 @@ const HomePage = () => {
           alignItems: "center",
         }}
       >
-        {loading ? (
-          <HashLoader
-            color={"white"}
-            loading={loading}
-            size={100}
-            aria-label="Loading Spinner"
-            data-testid="loader"
-          />
-        ) : (
-          posts.slice(0, 30).map((post) => {
+        {posts
+          ?.filter((po) => po.userId === location?.state?.key)
+          .map((post) => {
             return (
-              <PostsComponent>
+              <PostsComponent key={post.userId}>
                 <div
                   style={{
                     display: "flex",
@@ -74,11 +60,10 @@ const HomePage = () => {
                 </div>
               </PostsComponent>
             );
-          })
-        )}
+          })}
       </div>
     </div>
   );
 };
 
-export default HomePage;
+export default CommentViewPage;

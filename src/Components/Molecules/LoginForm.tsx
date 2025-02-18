@@ -27,11 +27,9 @@ const LoginForm = () => {
   const navigate = useNavigate()
 
   const handleLogin = () => {
-    console.log("you are logged in");
     navigate('/home')
   };
 
-  console.log(watch("example"));
 
   const inputSt = {
     width: "100%",
@@ -100,8 +98,8 @@ const LoginForm = () => {
                 alignItems: "center",
               }}
             >
-              <FaArrowRight />
-              <span style={{ color: "#9C27B0" }}>Create new account</span>
+              <FaArrowRight color="#9C27B0" />
+              <span onClick={() => navigate('/register')} style={{ color: "#9C27B0", marginLeft: 12 }}>Create new account</span>
             </div>
           </div>
 

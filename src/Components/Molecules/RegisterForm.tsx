@@ -31,10 +31,8 @@ const RegisterForm = () => {
   } = useForm<Inputs>();
 
   const handleRegister = () => {
-    console.log("you are logged in");
   };
 
-  console.log(watch("example"));
 
   const inputSt = {
     width: "100%",

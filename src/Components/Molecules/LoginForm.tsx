@@ -27,11 +27,9 @@ const LoginForm = () => {
   const navigate = useNavigate()
 
   const handleLogin = () => {
-    console.log("you are logged in");
     navigate('/home')
   };
 
-  console.log(watch("example"));
 
   const inputSt = {
     width: "100%",

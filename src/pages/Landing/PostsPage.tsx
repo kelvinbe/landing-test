@@ -40,7 +40,7 @@ const PostsPage = () => {
        {
         posts.map((post) => {
             return <PostsComponent>
-                <div  style={{display: 'flex', flexDirection: 'column'}}>
+                <div  style={{display: 'flex', flexDirection: 'column', color: 'white'}}>
                <div>Gender: {post?.title}</div>
                </div>
             </PostsComponent>

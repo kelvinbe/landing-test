@@ -9,12 +9,17 @@ import UsersProfilePage from './pages/Landing/UserProfilesPage.tsx';
 import PostsContextProvider from './context/PostsContext.tsx';
 import PostsPage from './pages/Landing/PostsPage.tsx';
 import CommentViewPage from './pages/Landing/CommentsViewPage.tsx';
+import Register from './pages/Auth/Register.tsx';
 
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
   },
   {
     path: "/home",

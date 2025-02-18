@@ -15,11 +15,15 @@ import { FaTwitter } from "react-icons/fa";
 import { TiSocialGooglePlus } from "react-icons/ti";
 import { FaArrowRight } from "react-icons/fa";
 import { IoCheckboxSharp } from "react-icons/io5";
+import { useNavigate } from "react-router-dom";
 
 
 type Inputs = {
-  example: string;
-  exampleRequired: string;
+    name: string,
+    email: string,
+    password: string,
+    confirmPassword: string
+
 };
 
 const RegisterForm = () => {
@@ -28,11 +32,22 @@ const RegisterForm = () => {
     handleSubmit,
     watch,
     formState: { errors },
-  } = useForm<Inputs>();
+  } = useForm<Inputs>({
+
+    defaultValues: {
+        name: "",
+        email: "",
+        password: "",
+        confirmPassword: ""
+      },
+  });
 
   const handleRegister = () => {
+    navigate('/')
   };
 
+    const navigate = useNavigate()
+  
 
   const inputSt = {
     width: "100%",
@@ -52,7 +67,7 @@ const RegisterForm = () => {
     border: "1px solid #ccc",
     borderRadius: "8px",
     backgroundColor: "#f9f9f9",
-    margin: 5,
+    margin: '5px',
   };
 
   const IconButtonData = [
@@ -114,7 +129,7 @@ const RegisterForm = () => {
               }}
             >
               <FaArrowRight color="#9C27B0" />
-              <span style={{ color: "#9C27B0" }}>Already have account?</span>
+              <span onClick={() => navigate('/')} style={{ color: "#9C27B0",marginLeft: 12 }}>Already have account?</span>
             </div>
           </div>
 
@@ -162,30 +177,32 @@ const RegisterForm = () => {
             <input
               placeholder="Name"
               style={inputSt}
-              {...register("example")}
+              {...register("name")}
             />
 
             <input
               placeholder="Email"
               style={inputSt}
-              {...register("exampleRequired", { required: true })}
+              {...register("email", { required: true })}
             />
 
             <div style={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
                 <div style={{width: '50%'}}>
             <input
               placeholder="Password*"
+              type="password"
               style={inputStPass}
-              {...register("exampleRequired", { required: true })}
+              {...register("password", { required: true })}
             />
             </div>
 
                 <div style={{width: '50%',marginLeft: 53, }}>
 
                 <input
+                type="password"
               placeholder="Repeat Password*"
               style={inputStPass}
-              {...register("exampleRequired", { required: true })}
+              {...register("confirmPassword", { required: true })}
             />
                 </div>
 

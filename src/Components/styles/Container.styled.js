@@ -118,8 +118,9 @@ export const IconStyledButton = styled.button`
     color: ${props => props.$txtColor};
     font-size: 12px;
     margin: 1em;
-    border-radius: 9px;
+    border-radius: 109px;
     display: flex;
     border-color: ${props => props.$btnColor};
+    padding: 5px;
 
 `;

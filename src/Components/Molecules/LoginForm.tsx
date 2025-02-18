@@ -14,6 +14,8 @@ import { FaFacebookF } from "react-icons/fa";
 import { FaTwitter } from "react-icons/fa";
 import { TiSocialGooglePlus } from "react-icons/ti";
 import { FaArrowRight } from "react-icons/fa";
+import { useNavigate } from "react-router-dom"
+
 
 type Inputs = {
   example: string;
@@ -21,15 +23,12 @@ type Inputs = {
 };
 
 const LoginForm = () => {
-  const {
-    register,
-    handleSubmit,
-    watch,
-    formState: { errors },
-  } = useForm<Inputs>();
+  const {register,handleSubmit,watch,} = useForm<Inputs>();
+  const navigate = useNavigate()
 
   const handleLogin = () => {
     console.log("you are logged in");
+    navigate('/home')
   };
 
   console.log(watch("example"));

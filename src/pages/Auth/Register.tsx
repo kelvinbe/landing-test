@@ -1,7 +1,7 @@
 import React from "react";
-import LoginForm from "../../Components/Molecules/LoginForm";
+import RegisterForm from "../../Components/Molecules/RegisterForm";
 
-const Login = () => {
+const Register = () => {
   return (
     <div
       style={{
@@ -13,9 +13,9 @@ const Login = () => {
         height: "100vh",
       }}
     >
-      <LoginForm />
+      <RegisterForm />
     </div>
   );
 };
 
-export default Login;
+export default Register;

@@ -5,8 +5,12 @@ import { PostsContext } from "../../context/PostsContext";
 import HashLoader from "react-spinners/HashLoader";
 
 const HomePage = () => {
+
+    // Loading state and pulling post values from PostsContext
   const { posts, getPosts } = useContext(PostsContext);
   let [loading, setLoading] = useState(true);
+
+  // Using useEffect to aid with checking if posts have been loaded if not we simply call the getPosts function
 
   useEffect(() => {
     if (posts?.length < 1) {
@@ -19,6 +23,8 @@ const HomePage = () => {
 
   console.log("posts", posts);
 
+  // Return the posts component and header aligning and stacking up the components as should be
+
   return (
     <div
       style={{
@@ -26,14 +32,14 @@ const HomePage = () => {
         width: "100%",
         height: "100vh",
         overflowX: "scroll",
-        overflowY: "hidden",
-        // padding: '15px 20px'
+        // overflowY: "hidden",
       }}
     >
       <Header />
       <div
         style={{ display: "flex", justifyContent: "center", color: "white" }}
-      >
+      > 
+
         <h2>Welcome to the Landing</h2>
       </div>
 

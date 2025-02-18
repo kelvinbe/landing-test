@@ -21,7 +21,7 @@ Landing test is more of  an application show casing building app using styled co
 
 - **Responsiveness** - Often a very important part of building any application is the view that the user will most likely use a mobile device to acces the site. Hence the use of styled components to handle the responsiveness was very helpful.
 
-- **State Management** - To handle the state management i moved to use the react context state management which prevented having to pass down props. Preventing prop drilling.
+- **State Management** - To handle the state management i moved to use the react context state management which prevented having to pass down many props. Preventing prop drilling.
 
 
 ## Implementation Decisions

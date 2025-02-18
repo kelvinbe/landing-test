@@ -5,8 +5,12 @@ import { UserComponent } from "../../Components/styles/Header.styled";
 import HashLoader from "react-spinners/HashLoader";
 
 const UsersProfilePage = () => {
+// Loading state and pulling users values from PostsContext
+
   const { users, getUsers } = useContext(UsersContext);
   let [loading, setLoading] = useState(true);
+
+  // Using the useEffect to handle the calling of users if the array is still 0 setting loading to false
 
   useEffect(() => {
     if (users.length < 1) {
@@ -18,6 +22,8 @@ const UsersProfilePage = () => {
   }, [users]);
 
   console.log("users", users);
+
+  // Displaying the Users component with the data from the api
 
   return (
     <div

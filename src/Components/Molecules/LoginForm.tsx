@@ -18,12 +18,17 @@ import { useNavigate } from "react-router-dom"
 
 
 type Inputs = {
-  example: string;
-  exampleRequired: string;
+  name: string;
+  email: string;
 };
 
 const LoginForm = () => {
-  const {register,handleSubmit,watch,} = useForm<Inputs>();
+  const {register,handleSubmit,watch,} = useForm<Inputs>({
+    defaultValues: {
+      name: "",
+      email: "",
+    },
+  });
   const navigate = useNavigate()
 
   const handleLogin = () => {
@@ -147,13 +152,13 @@ const LoginForm = () => {
             <input
               placeholder="Name"
               style={inputSt}
-              {...register("example")}
+              {...register("name")}
             />
 
             <input
               placeholder="Password"
               style={inputSt}
-              {...register("exampleRequired", { required: true })}
+              {...register("email", { required: true })}
             />
 
             <div style={{ display: "flex", justifyContent: "space-between" }}>

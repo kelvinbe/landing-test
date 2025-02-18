@@ -5,13 +5,21 @@ import { PostsContext } from "../../context/PostsContext";
 import { useLocation } from "react-router-dom";
 
 const CommentViewPage = () => {
+
+    // Pulling values from posts context and calling useLoacation so i can use it in getting state key to filter
   const { posts, getPosts } = useContext(PostsContext);
   let location = useLocation();
 
+
+
   useEffect(() => {}, [location]);
+
+  // Logging posts and location for data break down
 
   console.log("posts", posts);
   console.log("location", location);
+
+  // Displaying specific post and filtering by specific location sate.
 
   return (
     <div
@@ -43,6 +51,7 @@ const CommentViewPage = () => {
           alignItems: "center",
         }}
       >
+        
         {posts
           ?.filter((po) => po.userId === location?.state?.key)
           .map((post) => {

@@ -18,8 +18,6 @@ export const Container = styled.div`
         height: auto;
         flex-direction: column;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-
-
     }
 `
 
@@ -93,9 +91,6 @@ export const InputSection = styled.div`
     border: 1px solid #ccc;
     border-radius: 8px;
     background-color: #f9f9f9;
-
-
-
 `
 
 export const StyledButton = styled.button`
@@ -105,11 +100,9 @@ export const StyledButton = styled.button`
     font-size: 1em;
     margin: 1em;
     padding: 0.25em 1em;
-    border-radius: 9px;
+    border-radius: 49px;
     font-weight: 400;
     border-color: ${props => props.$btnColor};
-
-
 `;
 
 export const IconStyledButton = styled.button`
@@ -122,5 +115,4 @@ export const IconStyledButton = styled.button`
     display: flex;
     border-color: ${props => props.$btnColor};
     padding: 5px;
-
 `;

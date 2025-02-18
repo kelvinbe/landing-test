@@ -25,7 +25,8 @@ const HomePage = () => {
         backgroundColor: "#6A1B9A",
         width: "100%",
         height: "100vh",
-        overflow: "scroll",
+        overflowX: "scroll",
+        overflowY: "hidden",
         // padding: '15px 20px'
       }}
     >

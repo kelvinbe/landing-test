@@ -14,11 +14,11 @@ const Header = () => {
   return (
     <HeaderContainer>
         <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-            <img src={Logo} width={50} height={60} />
+            <img src={Logo} width={100} height={100} />
         
         {HeaderLinks.map((lin) => {
             return <Link to={{ pathname: lin.link,
-            }} style={{padding: 5, color: 'white'}}>{lin.name}</Link>
+            }} style={{padding: 5, color: 'white', fontSize: 20}}>{lin.name}</Link>
         })}
     </div>
 

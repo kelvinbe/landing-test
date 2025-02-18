@@ -44,8 +44,8 @@ const HomePage = () => {
         posts.slice(0, 30).map((post) => {
 
             return <PostsComponent>
-                <div  style={{display: 'flex', flexDirection: 'column'}}>
-               <div>Title: {post?.title}</div>
+                <div  style={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}>
+               <div style={{color: 'white'}}>Title: {post?.title}</div>
                </div>
             </PostsComponent>
         })

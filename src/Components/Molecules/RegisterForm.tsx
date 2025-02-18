@@ -183,8 +183,10 @@ const RegisterForm = () => {
             <input
               placeholder="Email"
               style={inputSt}
-              {...register("email", { required: true })}
+              {...register("email", { required: true, })}
             />
+        {errors.email && <span style={{fontSize: '10px', color: 'red'}}>This email is required</span>}
+
 
             <div style={{display: 'flex', justifyContent: 'space-between', width: '100%'}}>
                 <div style={{width: '50%'}}>
@@ -194,6 +196,8 @@ const RegisterForm = () => {
               style={inputStPass}
               {...register("password", { required: true })}
             />
+        {errors.password && <span style={{fontSize: '10px', color: 'red'}}>This password is required</span>}
+
             </div>
 
                 <div style={{width: '50%',marginLeft: 53, }}>
@@ -204,6 +208,8 @@ const RegisterForm = () => {
               style={inputStPass}
               {...register("confirmPassword", { required: true })}
             />
+        {errors.confirmPassword && <span style={{fontSize: '10px', color: 'red'}}>This confirm password is required</span>}
+
                 </div>
 
             </div>

@@ -15,6 +15,7 @@ import { FaTwitter } from "react-icons/fa";
 import { TiSocialGooglePlus } from "react-icons/ti";
 import { FaArrowRight } from "react-icons/fa";
 import { useNavigate } from "react-router-dom"
+import { IoCheckboxSharp } from "react-icons/io5";
 
 
 type Inputs = {
@@ -23,7 +24,7 @@ type Inputs = {
 };
 
 const LoginForm = () => {
-  const {register,handleSubmit,watch,} = useForm<Inputs>({
+  const {register,handleSubmit,watch,formState: { errors },} = useForm<Inputs>({
     defaultValues: {
       name: "",
       email: "",
@@ -154,16 +155,18 @@ const LoginForm = () => {
               style={inputSt}
               {...register("name")}
             />
+        {errors.name && <span style={{fontSize: '12px', color: 'red'}}>This name is required</span>}
 
             <input
               placeholder="Password"
               style={inputSt}
               {...register("email", { required: true })}
             />
+        {errors.email && <span style={{fontSize: '12px', color: 'red'}}>This password is required</span>}
 
             <div style={{ display: "flex", justifyContent: "space-between" }}>
               <span style={{ display: "flex" }}>
-                <MdCheckBoxOutlineBlank />
+                <IoCheckboxSharp color="#8BC34A" size={20} />
                 <text style={{ fontSize: "12px" }}>Remember</text>
               </span>
               <span style={{ fontSize: "12px", color: "#9C27B0" }}>

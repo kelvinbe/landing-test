@@ -32,10 +32,13 @@ const LoginForm = () => {
   });
   const navigate = useNavigate()
 
-  const handleLogin = () => {
+  const handleLogin = (values: Inputs) => {
     navigate('/home')
+    console.log('name', values.name)
+  console.log('email', values.email)
   };
 
+  
 
   const inputSt = {
     width: "100%",

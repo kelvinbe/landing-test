@@ -19,6 +19,7 @@ export default function UsersContextProvider({ children }) {
   const getUsers = async () => {
     try {
       const response = await fetch(url);
+        
 
       if (!response.ok) {
         console.log("error", response.status);
@@ -30,6 +31,39 @@ export default function UsersContextProvider({ children }) {
       console.log("error", error);
     }
   };
+
+
+
+  const createUser = async () => {
+
+    try {
+
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Bearer',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: email,
+          name: name
+        })
+      })
+
+      const RESPONSE = await response.json()
+
+      return RESPONSE
+      
+    } catch (error) {
+
+      console.log('error', error)
+      
+    }
+
+
+
+  }
+
 
   return (
     <UsersContext.Provider value={{ users, getUsers }}>
